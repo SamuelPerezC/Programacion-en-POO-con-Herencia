@@ -9,8 +9,14 @@ class Deportivo_hijo(Vehiculos):
         
     def activar_techo(self):
         self.tipo_techo = "Techo activado"
+        print(f"El techo ha sido activado: {self.tipo_techo}")
+            
+            
+            
+        
             
             
             
             
+
         
