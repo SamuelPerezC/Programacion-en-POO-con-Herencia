@@ -1,7 +1,7 @@
-from animal_equino import animal_equino
-from animal_cocodrilo import animal_cocodrilo
-from animal_insecto import animal_insecto
-from animal_pez import animal_pez
+from Animal_equino import animal_equino
+from Animal_cocodrilo import animal_cocodrilo
+from Animal_insecto import animal_insecto
+from Animal_peces import animal_pez
 from animal_pato import Animal_pato
 from Animales import Animales
 from Base_Datos import Base_datos
@@ -275,3 +275,4 @@ def main():
 # Punto de entrada del programa
 if __name__ == "__main__":
     main()
+
