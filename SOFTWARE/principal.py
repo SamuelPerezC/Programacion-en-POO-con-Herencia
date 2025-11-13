@@ -14,3 +14,8 @@ objeto_base_datos.imprimir_informacion()
 
 datos= objeto_usuario.validar_usuario()
 print(datos)
+
+objeto_usuario.eliminar_tarea("estudiar matematicas")
+
+objeto_base_datos.lista_informacion
+
