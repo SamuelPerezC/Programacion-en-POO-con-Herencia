@@ -1,6 +1,8 @@
 from animal_equino import animal_equino
 from animal_cocodrilo import animal_cocodrilo
 from animal_insecto import animal_insecto
+from animal_peces import animal_peces
+from animal_pato import animal_pato
 from Animales import Animales
 from Base_Datos import Base_datos
 
@@ -11,10 +13,12 @@ def menu_principal():
     print("1. Crear animal equino")
     print("2. Crear animal cocodrilo")
     print("3. Crear animal insecto")
-    print("4. Crear animal normal")
-    print("5. Ver listas")
-    print("6. Eliminar un animal")
-    print("7. Salir")
+    print("4. Crear animal pez")
+    print("5. Crear animal pato")
+    print("6. Crear animal normal")
+    print("7. Ver listas")
+    print("8. Eliminar un animal")
+    print("9. Salir")
     return input("Elige una opción: ")
 
 def menu_ver_listas():
@@ -23,8 +27,10 @@ def menu_ver_listas():
     print("2. Ver solo animales equinos")
     print("3. Ver solo animales cocodrilo")
     print("4. Ver solo animales insecto")
-    print("5. Ver solo animales normales")
-    print("6. Volver al menú principal")
+    print("5. Ver solo animales peces")
+    print("6. Ver solo animales pato")
+    print("7. Ver solo animales normales")
+    print("8. Volver al menú principal")
     return input("Elige una opción: ")
 
 def crear_animal_equino():
@@ -72,6 +78,36 @@ def crear_animal_insecto():
     animal_insecto_obj.adaptacion()
     animal_insecto_obj.interaccion_social()
 
+def crear_animal_pez():
+    nombre = input("Nombre: ") 
+    edad = input("Edad: ") 
+    habitad = input("Hábitat: ") 
+    dieta = input("Dieta: ") 
+    tamaño = input("Tamaño: ") 
+    color = input("Color: ")
+    
+    animal_pez_obj = animal_peces(nombre, edad, habitad, dieta, tamaño, color)
+    bd.agregar_animal(animal_pez_obj)
+    print("Animal pez creado y registrado.")
+    animal_pez_obj.moverse()
+    animal_pez_obj.comunicacion()
+    animal_pez_obj.descanso()
+
+def crear_animal_pato():
+    nombre = input("Nombre: ") 
+    edad = input("Edad: ") 
+    habitad = input("Hábitat: ") 
+    dieta = input("Dieta: ") 
+    tamaño = input("Tamaño: ") 
+    color = input("Color: ")
+    
+    animal_pato_obj = animal_pato(nombre, edad, habitad, dieta, tamaño, color)
+    bd.agregar_animal(animal_pato_obj)
+    print("Animal pato creado y registrado.")
+    animal_pato_obj.moverse()
+    animal_pato_obj.adaptacion()
+    animal_pato_obj.interaccion_social()
+
 def crear_animal_normal():
     nombre = input("Nombre: ") 
     edad = input("Edad: ") 
@@ -103,6 +139,12 @@ def ver_listas():
             print("\n--- Animales insecto ---")
             bd.imprimir_info(filtro_tipo="animal_insecto")
         elif opcion == "5":
+            print("\n--- Animales peces ---")
+            bd.imprimir_info(filtro_tipo="animal_peces")
+        elif opcion == "6":
+            print("\n--- Animales pato ---")
+            bd.imprimir_info(filtro_tipo="animal_pato")
+        elif opcion == "7":
             print("\n--- Animales normales ---")
             lista = [a for a in bd.lista_animales if a.__class__.__name__ == "Animales"]
             if not lista:
@@ -111,7 +153,7 @@ def ver_listas():
                 for i, animal in enumerate(lista):
                     print(f"{i}. ", end="")
                     animal.mostrar_atributos()
-        elif opcion == "6":
+        elif opcion == "8":
             break
         else:
             print("Opción no válida en Ver listas.")
@@ -144,12 +186,16 @@ def main():
         elif opcion == "3":
             crear_animal_insecto()
         elif opcion == "4":
-            crear_animal_normal()
+            crear_animal_pez()
         elif opcion == "5":
-            ver_listas()
+            crear_animal_pato()
         elif opcion == "6":
-            eliminar_animal()
+            crear_animal_normal()
         elif opcion == "7":
+            ver_listas()
+        elif opcion == "8":
+            eliminar_animal()
+        elif opcion == "9":
             print("Saliendo del programa...")
             break
         else:
